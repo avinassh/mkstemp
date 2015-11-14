@@ -5,11 +5,12 @@ from mkstemp.utils import TimeStampMixin
 
 
 class Item(TimeStampMixin):
-    title = models.CharField(max_length=300)
-    text = models.TextField()
-    url = models.URLField()
+    title = models.CharField(max_length=300, null=True)
+    text = models.TextField(null=True)
+    url = models.URLField(null=True)
     item_type = models.IntegerField()
     locked = models.BooleanField()
+    slug = models.SlugField(max_length=6)
 
     parent = models.ForeignKey('self', null=True)
     author = models.ForeignKey(User)
