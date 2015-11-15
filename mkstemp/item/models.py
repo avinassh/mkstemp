@@ -9,9 +9,7 @@ class Item(TimeStampMixin):
     title = models.CharField(max_length=300, blank=True)
     text = models.TextField(blank=True)
     url = models.URLField(blank=True)
-    item_type = models.IntegerField()
     locked = models.BooleanField(default=False)
-    slug = models.SlugField(max_length=6)
 
     parent = models.ForeignKey('self', null=True, blank=True)
     author = models.ForeignKey(User)
@@ -23,7 +21,7 @@ class Item(TimeStampMixin):
         ordering = ['-created_on']
 
     def get_absolute_url(self):
-        return reverse('item-detail', kwargs={'slug': self.slug})
+        return reverse('item-detail', kwargs={'pk': self.id})
 
 
 class Report(TimeStampMixin):

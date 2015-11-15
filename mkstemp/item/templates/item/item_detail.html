@@ -8,7 +8,7 @@
 <ol>
 {% for item in item.item_set.all %}
     <li>
-    <a href="{{ item.slug }}"><b>{{ item.title }}:</b></a>
+    <a href="{{ item.id }}"><b>{{ item.title }}:</b></a>
     <p>{{ item.text }}</p>
     </li>
 {% endfor %}

@@ -16,4 +16,4 @@ class ItemDetailView(DetailView):
 
 class ItemCreate(CreateView):
     model = Item
-    fields = ['title', 'text', 'url', 'item_type', 'author', 'slug']
+    fields = ['title', 'text', 'url', 'author']

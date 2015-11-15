@@ -26,6 +26,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', auth_views.login, name='login'),
     url(r'^logout/', auth_views.logout, name='logout'),
-    url(r'^(?P<slug>[a-zA-Z0-9-]+)/$', ItemDetailView.as_view(),
+    url(r'^(?P<pk>[0-9]+)/$', ItemDetailView.as_view(),
         name='item-detail'),
 ]
