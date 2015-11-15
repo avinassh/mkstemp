@@ -16,4 +16,9 @@ class ItemDetailView(DetailView):
 
 class ItemCreate(CreateView):
     model = Item
-    fields = ['title', 'text', 'url', 'author']
+    fields = ['title', 'text', 'url']
+
+    def form_valid(self, form):
+        item = form.save(commit=False)
+        item.author = self.request.user
+        return super(ItemCreate, self).form_valid(form)
