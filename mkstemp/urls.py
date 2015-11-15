@@ -18,10 +18,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from mkstemp.item.views import ItemListView
+from mkstemp.item.views import ItemListView, ItemDetailView
 
 urlpatterns = [
     url(r'^$', ItemListView.as_view(), name='home'),
+    url(r'^(?P<slug>[a-zA-Z0-9-]+)/$', ItemDetailView.as_view()),
     url('^login/', auth_views.login, name='login'),
     url('^logout/', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
