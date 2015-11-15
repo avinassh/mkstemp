@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 from mkstemp.utils import TimeStampMixin
 
@@ -20,6 +21,9 @@ class Item(TimeStampMixin):
 
     class Meta:
         ordering = ['-created_on']
+
+    def get_absolute_url(self):
+        return reverse('item-detail', kwargs={'slug': self.slug})
 
 
 class Report(TimeStampMixin):
