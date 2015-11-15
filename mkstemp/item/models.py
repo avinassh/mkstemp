@@ -9,7 +9,7 @@ class Item(TimeStampMixin):
     text = models.TextField(null=True, blank=True)
     url = models.URLField(null=True, blank=True)
     item_type = models.IntegerField()
-    locked = models.BooleanField()
+    locked = models.BooleanField(default=False)
     slug = models.SlugField(max_length=6)
 
     parent = models.ForeignKey('self', null=True, blank=True)
