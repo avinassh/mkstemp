@@ -17,3 +17,14 @@ class Item(TimeStampMixin):
 
     def __str__(self):
         return "<{} - {}>".format(self.id, self.title[:30])
+
+
+class Report(TimeStampMixin):
+    text = models.TextField()
+    resolved = models.BooleanField(default=False)
+
+    item = models.ForeignKey(Item)
+    user = models.ForeignKey(User)
+
+    def __str__(self):
+        return "{} - by {}".format(self.text[:30], self.user.username)
