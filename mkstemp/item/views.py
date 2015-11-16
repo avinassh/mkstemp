@@ -14,6 +14,11 @@ class ItemDetailView(DetailView):
     model = Item
     context_object_name = 'item'
 
+    def get_context_data(self, **kwargs):
+        context = super(ItemDetailView, self).get_context_data(**kwargs)
+        context['form'] = ItemForm()
+        return context
+
 
 class ItemCreateView(CreateView):
     model = Item

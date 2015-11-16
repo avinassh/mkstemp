@@ -4,7 +4,6 @@
 <h2>{{ item.title }}</h2>
 <p>{{ item.text }}</p>
 <br>
-
 <ol>
 {% for item in item.item_set.all %}
     <li>
@@ -13,4 +12,9 @@
     </li>
 {% endfor %}
 </ol>
+<br><br>
+<form action="/submit/" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
 {% endblock %}
