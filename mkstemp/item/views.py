@@ -20,6 +20,8 @@ class ItemDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ItemDetailView, self).get_context_data(**kwargs)
         context['form'] = ItemForm(initial={'parent': self.object})
+        context['form'].fields.pop('title')
+        context['form'].fields.pop('url')
         return context
 
 
