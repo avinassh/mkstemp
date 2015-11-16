@@ -10,6 +10,7 @@ from .forms import ItemForm
 class ItemListView(ListView):
     model = Item
     context_object_name = 'item_list'
+    queryset = Item.objects.filter(parent=None)
 
 
 class ItemDetailView(DetailView):
