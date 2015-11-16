@@ -4,10 +4,11 @@
 <h2>{{ item.title }}</h2>
 <p>{{ item.text }}</p>
 <br>
+<!-- Comments -->
 <ol>
 {% for item in item.item_set.all %}
     <li>
-    <a href="{% url 'item-detail' item.id %}"><b>{{ item.title }}:</b></a>
+    <b>{{ item.author.username }}:</b>
     <p>{{ item.text }}</p>
     </li>
 {% endfor %}
