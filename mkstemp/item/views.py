@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
 
 from .models import Item
+from .forms import ItemForm
 
 
 class ItemListView(ListView):
@@ -16,7 +17,7 @@ class ItemDetailView(DetailView):
 
 class ItemCreate(CreateView):
     model = Item
-    fields = ['title', 'text', 'url']
+    form_class = ItemForm
 
     def form_valid(self, form):
         item = form.save(commit=False)
