@@ -15,11 +15,11 @@ class ItemDetailView(DetailView):
     context_object_name = 'item'
 
 
-class ItemCreate(CreateView):
+class ItemCreateView(CreateView):
     model = Item
     form_class = ItemForm
 
     def form_valid(self, form):
         item = form.save(commit=False)
         item.author = self.request.user
-        return super(ItemCreate, self).form_valid(form)
+        return super(ItemCreateView, self).form_valid(form)

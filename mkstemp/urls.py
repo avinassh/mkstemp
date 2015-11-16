@@ -18,11 +18,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from mkstemp.item.views import ItemListView, ItemDetailView, ItemCreate
+from mkstemp.item.views import ItemListView, ItemDetailView, ItemCreateView
 
 urlpatterns = [
     url(r'^$', ItemListView.as_view(), name='home'),
-    url(r'^submit/', ItemCreate.as_view()),
+    url(r'^submit/', ItemCreateView.as_view()),
     url(r'^admin/', admin.site.urls),
     url(r'^login/', auth_views.login, name='login'),
     url(r'^logout/', auth_views.logout, name='logout'),
