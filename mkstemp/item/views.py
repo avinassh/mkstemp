@@ -1,5 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
+from django.core.urlresolvers import reverse
+
 
 from .models import Item
 from .forms import ItemForm
@@ -27,4 +29,7 @@ class ItemCreateView(CreateView):
     def form_valid(self, form):
         item = form.save(commit=False)
         item.author = self.request.user
+        parent = form.cleaned_data.get('parent', None)
+        if parent:
+            self.success_url = reverse('item-detail', kwargs={'pk': parent.id})
         return super(ItemCreateView, self).form_valid(form)
