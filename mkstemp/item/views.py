@@ -36,3 +36,10 @@ class ItemCreateView(CreateView):
         if parent:
             self.success_url = reverse('item-detail', kwargs={'pk': parent.id})
         return super(ItemCreateView, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(ItemCreateView, self).get_context_data(**kwargs)
+        if context['form'].data.get('parent'):
+            context['form'].fields.pop('title')
+            context['form'].fields.pop('url')
+        return context
