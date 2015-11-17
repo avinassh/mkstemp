@@ -6,10 +6,10 @@
 <br>
 <!-- Comments -->
 <ol>
-{% for item in item.item_set.all %}
+{% for i in item.get_comments %}
     <li>
-    <b>{{ item.author.username }}:</b>
-    <p>{{ item.text }}</p>
+    <b>{{ i.author.username }}:</b>
+    <p>{{ i.text }}</p>
     </li>
 {% endfor %}
 </ol>
