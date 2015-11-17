@@ -17,11 +17,14 @@ class Item(TimeStampMixin):
     def __str__(self):
         return "<{} - {}>".format(self.id, self.title[:30])
 
-    class Meta:
-        ordering = ['-created_on']
-
     def get_absolute_url(self):
         return reverse('item-detail', kwargs={'pk': self.id})
+
+    def get_comments(self):
+        return self.item_set.order_by('created_on')
+
+    class Meta:
+        ordering = ['-created_on']
 
 
 class Report(TimeStampMixin):
