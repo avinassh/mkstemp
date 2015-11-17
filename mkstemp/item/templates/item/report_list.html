@@ -1,0 +1,12 @@
+{% extends "item/base.html" %}
+
+{% block content %}
+<ol>
+{% for report in report_list %}
+    <li>
+      <b>{{ report.text }}</b>
+    </a>
+    </li>
+{% endfor %}
+</ol>
+{% endblock %}

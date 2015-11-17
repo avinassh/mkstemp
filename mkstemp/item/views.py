@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView
 from django.core.urlresolvers import reverse
 
 
-from .models import Item
+from .models import Item, Report
 from .forms import ItemForm
 
 
@@ -43,3 +43,9 @@ class ItemCreateView(CreateView):
             context['form'].fields.pop('title')
             context['form'].fields.pop('url')
         return context
+
+
+class ReportListView(ListView):
+    model = Report
+    context_object_name = 'report_list'
+    queryset = Report.objects.filter(resolved=False)
