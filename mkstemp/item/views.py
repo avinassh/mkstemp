@@ -16,6 +16,7 @@ class ItemListView(ListView):
 class ItemDetailView(DetailView):
     model = Item
     context_object_name = 'item'
+    queryset = Item.objects.filter(parent=None)
 
     def get_context_data(self, **kwargs):
         context = super(ItemDetailView, self).get_context_data(**kwargs)
