@@ -20,8 +20,7 @@ class ItemDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ItemDetailView, self).get_context_data(**kwargs)
         context['form'] = ItemForm(initial={'parent': self.object})
-        context['form'].fields.pop('title')
-        context['form'].fields.pop('url')
+        context['form'].make_comment_form()
         return context
 
 
@@ -39,9 +38,8 @@ class ItemCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ItemCreateView, self).get_context_data(**kwargs)
-        if context['form'].data.get('parent'):
-            context['form'].fields.pop('title')
-            context['form'].fields.pop('url')
+        if context['form'].is_form_for_comment():
+            context['form'].make_comment_form()
         return context
 
 
