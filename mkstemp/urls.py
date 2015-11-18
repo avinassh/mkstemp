@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from mkstemp.item.views import (ItemListView, ItemDetailView, ItemCreateView,
-                                ReportListView)
+                                ReportListView, ReportCreateView)
 
 urlpatterns = [
     url(r'^$', ItemListView.as_view(), name='home'),
@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^logout/', auth_views.logout, name='logout'),
     url(r'^(?P<pk>[0-9]+)/$', ItemDetailView.as_view(),
         name='item-detail'),
-    url(r'^report/', ReportListView.as_view(), name='report-list')
+    url(r'^report/add', ReportCreateView.as_view()),
+    url(r'^report/', ReportListView.as_view(), name='report-list'),
 ]
