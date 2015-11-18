@@ -67,5 +67,5 @@ class ReportCreateView(CreateView):
     def _get_item_from_query_param(self):
         try:
             return get_object_or_404(Item, pk=int(self.request.GET.get('id')))
-        except ValueError:
+        except (ValueError, TypeError):
             raise Http404('No Item matches the given query.')
