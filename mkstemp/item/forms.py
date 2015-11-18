@@ -18,6 +18,9 @@ class ItemForm(ModelForm):
         self.fields.pop('title')
         self.fields.pop('url')
 
+    def is_form_for_comment(self):
+        return bool(self.data.get('parent'))
+
     class Meta:
         model = Item
         fields = ['title', 'text', 'url', 'parent']
