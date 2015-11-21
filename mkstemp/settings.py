@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mkstemp',
-    'mkstemp.item',
+    'mkstemp.items',
     'mkstemp.reports'
 ]
 

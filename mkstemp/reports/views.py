@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.http import Http404
 
 
-from mkstemp.item.models import Item
+from mkstemp.items.models import Item
 from .models import Report
 
 

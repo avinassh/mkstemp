@@ -18,7 +18,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from mkstemp.item.views import ItemListView, ItemDetailView, ItemCreateView
+from mkstemp.items.views import ItemListView, ItemDetailView, ItemCreateView
 from mkstemp.reports.views import ReportListView, ReportCreateView
 
 urlpatterns = [

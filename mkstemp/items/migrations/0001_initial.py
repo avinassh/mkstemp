@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('item_type', models.IntegerField()),
                 ('locked', models.BooleanField()),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('parent', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='item.Item')),
+                ('parent', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='items.Item')),
             ],
             options={
                 'abstract': False,

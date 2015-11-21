@@ -8,7 +8,7 @@ class Report(TimeStampMixin):
     text = models.TextField()
     resolved = models.BooleanField(default=False)
 
-    item = models.ForeignKey('item.Item')
+    item = models.ForeignKey('items.Item')
     user = models.ForeignKey(User)
 
     def __str__(self):
