@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mkstemp',
-    'mkstemp.item'
+    'mkstemp.item',
+    'mkstemp.reports'
 ]
 
 MIDDLEWARE_CLASSES = [

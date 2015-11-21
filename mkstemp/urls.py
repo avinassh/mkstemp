@@ -18,8 +18,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from mkstemp.item.views import (ItemListView, ItemDetailView, ItemCreateView,
-                                ReportListView, ReportCreateView)
+from mkstemp.item.views import ItemListView, ItemDetailView, ItemCreateView
+from mkstemp.reports.views import ReportListView, ReportCreateView
 
 urlpatterns = [
     url(r'^$', ItemListView.as_view(), name='home'),
