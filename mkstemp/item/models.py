@@ -25,14 +25,3 @@ class Item(TimeStampMixin):
 
     class Meta:
         ordering = ['-created_on']
-
-
-class Report(TimeStampMixin):
-    text = models.TextField()
-    resolved = models.BooleanField(default=False)
-
-    item = models.ForeignKey(Item)
-    user = models.ForeignKey(User)
-
-    def __str__(self):
-        return "{} - by {}".format(self.text[:30], self.user.username)
